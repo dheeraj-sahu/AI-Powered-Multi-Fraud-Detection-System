@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card bg-dark text-white shadow-lg" style="max-width: 700px; width: 100%;">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="mb-0">
+        <i class="bi bi-telephone-x-fill me-2 text-warning"></i>Fake Customer Care Detection
+      </h4>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/run-fake-care-detection" onsubmit="fillAutoFields()">
+
+        <!-- User Inputs -->
+        <div class="form-floating mb-3">
+          <input type="tel" class="form-control" name="Raw_Number" id="phone_number" required>
+          <label for="phone_number">Customer Care Number</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" step="0.1" class="form-control" name="Call_Duration_Minutes" id="call_duration" required>
+          <label for="call_duration">Call Duration (minutes)</label>
+        </div>
+
+       
+
+        <div class="form-floating mb-3">
+          <input type="number" step="0.01" class="form-control" name="Call_Cost_USD" required>
+          <label for="Call_Cost_USD">Call Cost (USD)</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" step="0.01" class="form-control" name="Cost_Per_Minute" required>
+          <label for="Cost_Per_Minute">Cost Per Minute (USD)</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" name="Destination_Type" required>
+            <option value="Domestic">Domestic</option>
+            <option value="International_Mobile">International_Mobile</option>
+            <option value="Spoofed_Domestic">Spoofed_Domestic</option>
+            <option value="Other">Other</option>
+          </select>
+          <label for="Destination_Type">Destination Type</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="Daily_Call_Count" required>
+          <label for="Daily_Call_Count">Daily Call Count</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" name="Time_Category" required>
+            <option value="Business Hours">Business Hours</option>
+            <option value="Evening">Evening</option>
+            <option value="Late Night">Late Night</option>
+            <option value="Off Hours">Off Hours</option>
+          </select>
+          <label for="Time_Category">Time Category</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" name="Caller_ID_Status" required>
+            <option value="Visible">Visible</option>
+            <option value="Blocked">Blocked</option>
+            <option value="Spoofed">Spoofed</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+          <label for="Caller_ID_Status">Caller ID Status</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" name="Number_Pattern" required>
+            <option value="Mobile_Jio">Mobile_Jio</option>
+            <option value="Spoofed_Indian_Mobile">Spoofed_Indian_Mobile</option>
+            <option value="UK_Premium_Rate">UK_Premium_Rate</option>
+            <option value="Mobile_BSNL">Mobile_BSNL</option>
+            <option value="Customer_Care">Customer_Care</option>
+            <option value="Toll_Free_Spoofed">Toll_Free_Spoofed</option>
+            <option value="Indian_Mobile_Suspicious">Indian_Mobile_Suspicious</option>
+            <option value="Mobile_Airtel">Mobile_Airtel</option>
+            <option value="International_Mobile_Suspicious">International_Mobile_Suspicious</option>
+            <option value="Mobile_Vi">Mobile_Vi</option>
+          </select>
+          <label for="Number_Pattern">Number Pattern</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="Area_Code" required>
+          <label for="Area_Code">Area Code</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select class="form-select" name="Operator" required>
+            <option value="Jio">Jio</option>
+            <option value="Scam_Spoofed">Scam_Spoofed</option>
+            <option value="International_Scam">International_Scam</option>
+            <option value="BSNL">BSNL</option>
+            <option value="Service_Provider">Service_Provider</option>
+            <option value="Airtel">Airtel</option>
+            <option value="Vi">Vi</option>
+          </select>
+          <label for="Operator">Operator</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="Number_Length" id="Number_Length" required>
+          <label for="Number_Length">Number Length</label>
+        </div>
+
+        <!-- Auto-Filled Fields -->
+        <input type="hidden" name="Day_Name" id="Day_Name">
+        <input type="hidden" name="Day_of_Week" id="Day_of_Week">
+        <input type="hidden" name="Hour" id="Hour">
+        <input type="hidden" name="Is_Weekend" id="Is_Weekend">
+
+       
+        <!-- Submit -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning btn-lg fw-bold">
+            <i class="bi bi-search me-2"></i>Detect Scam
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Auto-fill Script -->
+<script>
+  function fillAutoFields() {
+    const callTimeInput = document.getElementById("call_time").value;
+    const callTime = new Date(callTimeInput);
+
+    document.getElementById("Day_Name").value = callTime.toLocaleString('en-US', { weekday: 'long' });
+    document.getElementById("Day_of_Week").value = callTime.getDay();
+    document.getElementById("Hour").value = callTime.getHours();
+    document.getElementById("Is_Weekend").value = (callTime.getDay() === 0 || callTime.getDay() === 6) ? 1 : 0;
+  }
+</script>
+{% endblock %}

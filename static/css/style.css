@@ -1,0 +1,120 @@
+
+body {
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('/static/images/2-43-1024x576.jpg') center/cover no-repeat fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Navbar background gradient and shadow */
+.navbar {
+  background: linear-gradient(90deg, #060b1e, #001f3f);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  transition: background 0.3s ease;
+}
+
+/* Nav-link hover glow */
+.navbar .nav-link {
+  color: #bbb;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.navbar .nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.8);
+}
+
+/* Brand hover pop */
+.navbar-brand:hover .bi-shield-lock-fill {
+  color: #ffc107;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+/* Button hover styles */
+.btn-warning {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+}
+.btn-warning:hover {
+  background-color: #e67600;
+  border-color: #e67600;
+}
+
+/* Outline button hover glow */
+.btn-outline-warning {
+  color: #ff8c00;
+  border-color: #ff8c00;
+}
+.btn-outline-warning:hover {
+  color: #fff;
+  background-color: rgba(255,140,0,0.2);
+  box-shadow: 0 0 8px rgba(255,140,0,0.8);
+}
+
+
+
+
+.hero {
+  /* height: 100vh; */
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('/static/images/2-43-1024x576.jpg') center/cover no-repeat;
+}
+
+
+
+
+
+
+
+
+
+/* Card header gradient */
+.bg-gradient {
+  background: linear-gradient(90deg, #001f3f, #060b1e);
+  
+}
+
+/* Dark form controls */
+.form-control-dark {
+  background-color: #111827;
+  border: 1px solid #2a2e35;
+  color: #ddd;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control-dark:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
+  background-color: #111827;
+  color: #fff;
+}
+
+/* Floating label color */
+.form-floating .form-control:focus ~ label,
+.form-floating .form-control:not(:placeholder-shown) ~ label {
+  color: #ff8c00;
+  font-weight: 500;
+}
+
+/* Button hover glow */
+.btn-warning {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+}
+.btn-warning:hover {
+  background-color: #e67600;
+  border-color: #e67600;
+  box-shadow: 0 0 10px rgba(230, 118, 0, 0.8);
+}
+
+/* Card shadow intensify */
+.card {
+  border: none;
+  border-radius: 0.75rem;
+}
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+}

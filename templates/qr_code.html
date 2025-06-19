@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card bg-dark text-white shadow-lg" style="max-width: 700px; width: 100%;">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="mb-0">
+        <i class="bi bi-qr-code-scan me-2 text-warning"></i>QR Code Detection
+      </h4>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/run-qr-detection" enctype="multipart/form-data">
+
+        <!-- QR Code Image Upload -->
+        <div class="form-floating mb-4">
+          <input type="file" class="form-control" name="qr_image" id="qr_image" accept="image/*" required>
+          <label for="qr_image">Upload QR Code Image</label>
+        </div>
+
+        <!-- Submit -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning btn-lg fw-bold">
+            <i class="bi bi-search me-2"></i>Scan QR Code
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

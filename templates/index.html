@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="d-flex align-items-center justify-content-center text-white text-center" style="min-height: 90vh;">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Detect Fraud. Save Lives.</h1>
+    <p class="lead mb-4 animate__animated animate__fadeInUp">AI-Powered Real-Time Transaction Monitoring and Alerts</p>
+    {% if not logged_in %}
+    <a class="btn btn-lg btn-warning shadow px-5 py-2 animate__animated animate__zoomIn" href="/signup">Get Started</a>
+    {% else %}
+    <a class="btn btn-lg btn-warning shadow px-5 py-2 animate__animated animate__zoomIn" href="/dashboard">Get Started</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Footer Section: Why Choose Our System -->
+<footer class="py-5 bg-dark text-center text-white">
+  <div class="container">
+    <h2 class="mb-4">Why Choose Our System?</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <i class="bi bi-shield-lock display-4 text-warning mb-3"></i>
+        <h5>Secure</h5>
+        <p>Built with strong encryption and real-time alerts to protect sensitive financial data.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-cpu display-4 text-warning mb-3"></i>
+        <h5>AI-Powered</h5>
+        <p>Machine learning algorithms that learn from patterns and predict fraudulent activity.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-bar-chart-line display-4 text-warning mb-3"></i>
+        <h5>Scalable</h5>
+        <p>Handle thousands of transactions per second across multiple platforms.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}

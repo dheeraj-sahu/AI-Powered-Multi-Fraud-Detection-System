@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card bg-dark text-white shadow-lg" style="max-width: 700px; width: 100%;">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="mb-0"><i class="bi bi-funnel-fill me-2 text-warning"></i>Global & Local Model Input</h4>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/run-fraud-check">
+        <input type="hidden" name="phone" value="{{ session['phone'] }}">
+
+        <!-- Global Model Fields -->
+        <h5 class="text-warning">Global Model Inputs</h5>
+        
+        <div class="form-floating mb-3">
+          <input type="number" step="any" class="form-control" name="amount" id="amount" required>
+          <label for="amount">Amount</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="transaction_type" id="transaction_type" required>
+          <label for="transaction_type">Transaction Type</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="payer_vpa_fe" id="payer_vpa_fe" required>
+          <label for="payer_vpa_fe">Payer VPA</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="beneficiary_vpa_fe" id="beneficiary_vpa_fe" required>
+          <label for="beneficiary_vpa_fe">Beneficiary VPA</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="payer_account_fe" id="payer_account_fe" required>
+          <label for="payer_account_fe">Payer Account</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="beneficiary_account_fe" id="beneficiary_account_fe" required>
+          <label for="beneficiary_account_fe">Beneficiary Account</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="payer_ifsc_fe" id="payer_ifsc_fe" required>
+          <label for="payer_ifsc_fe">Payer IFSC</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="beneficiary_ifsc_fe" id="beneficiary_ifsc_fe" required>
+          <label for="beneficiary_ifsc_fe">Beneficiary IFSC</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="beneficiary_code_fe" id="beneficiary_code_fe" required>
+          <label for="beneficiary_code_fe">Beneficiary Code</label>
+        </div>
+
+        <!-- Local Model Fields -->
+        <h5 class="text-warning mt-4">Local Model Inputs</h5>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="payment_instrument" id="payment_instrument" required>
+          <label for="payment_instrument">Payment Instrument</label>
+        </div>
+
+        
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning btn-lg fw-bold">
+            <i class="bi bi-play-circle-fill me-1"></i> Run Fraud Detection
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

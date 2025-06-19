@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card bg-dark text-white shadow-lg" style="max-width: 600px; width: 100%;">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="mb-0"><i class="bi bi-person-badge-fill me-2 text-warning"></i>Complete Your Profile & Transaction</h4>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/user-details">
+        {# ––––– Profile fields ––––– #}
+        <h5 class="text-warning">Profile Info</h5>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control form-control-dark " id="phone" name="phone" placeholder="Phone" required value="{{ form_data.phone if form_data else '' }}">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="row">
+          <div class="col form-floating mb-3">
+            <input type="number" step="any" class="form-control form-control-dark" id="home_lat" name="home_lat" placeholder="Home Latitude" required value="{{ form_data.home_lat if form_data else '' }}">
+            <label for="home_lat">Home Latitude</label>
+          </div>
+          <div class="col form-floating mb-3">
+            <input type="number" step="any" class="form-control form-control-dark" id="home_lon" name="home_lon" placeholder="Home Longitude" required value="{{ form_data.home_lon if form_data else '' }}">
+            <label for="home_lon">Home Longitude</label>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control form-control-dark" id="known_devices" name="known_devices"
+                    placeholder="Comma‑separated device IDs" style="height: 60px" required>{{ form_data.known_devices if form_data else '' }}</textarea>
+          <label for="known_devices">Known Devices (comma‑separated)</label>
+        </div>
+
+        {# ––––– Transaction fields ––––– #}
+        <h5 class="text-warning">Transaction Info</h5>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control form-control-dark" id="device_id" name="device_id" placeholder="Device ID" required value="{{ form_data.device_id if form_data else '' }}">
+          <label for="device_id">Device ID</label>
+        </div>
+        <div class="row">
+          <div class="col form-floating mb-3">
+            <input type="number" step="any" class="form-control form-control-dark" id="txn_lat" name="txn_lat" placeholder="Txn Latitude" required value="{{ form_data.txn_lat if form_data else '' }}">
+            <label for="txn_lat">Txn Latitude</label>
+          </div>
+          <div class="col form-floating mb-3">
+            <input type="number" step="any" class="form-control form-control-dark" id="txn_lon" name="txn_lon" placeholder="Txn Longitude" required value="{{ form_data.txn_lon if form_data else '' }}">
+            <label for="txn_lon">Txn Longitude</label>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" step="any" class="form-control form-control-dark" id="amount" name="amount" placeholder="Amount" required value="{{ form_data.amount if form_data else '' }}">
+          <label for="amount">Amount</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control form-control-dark" id="failed_attempts" name="failed_attempts" placeholder="Failed Attempts" value="0" required value="{{ form_data.failed_attempts if form_data else 0 }}">
+          <label for="failed_attempts">Recent Failed Attempts</label>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-warning btn-lg fw-bold">
+            <i class="bi bi-check-circle-fill me-1"></i> Submit & Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Make Transaction</h2>
+  <form method="POST" action="/transaction">
+    {% for field in ['amount', 'transaction_type', 'payment_instrument', 'beneficiary_vpa', 'beneficiary_account', 'beneficiary_ifsc', 'initiation_mode'] %}
+      <input type="text" name="{{ field }}" placeholder="{{ field.replace('_',' ').title() }}" class="form-control mb-2" required>
+    {% endfor %}
+    <button class="btn btn-warning">Submit</button>
+  </form>
+</div>
+{% endblock %}

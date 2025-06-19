@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg text-white bg-dark">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="text-warning"><i class="bi bi-activity me-2"></i>Fraud Detection Result</h4>
+    </div>
+    <div class="card-body">
+      <h5 class="mb-3">Final Decision: 
+        <span class="badge {{ 'bg-danger' if result['decision'] == 'Fraud' else 'bg-success' }}">
+          {{ result['decision'] }}
+        </span>
+      </h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item bg-dark text-white">Global Model Score: <strong>{{ result['global_score'] }}</strong></li>
+        <li class="list-group-item bg-dark text-white">Rule Layer Score: <strong>{{ result['rule_score'] }}</strong></li>
+        <li class="list-group-item bg-dark text-white">Local Model Score: <strong>{{ result['local_score'] }}</strong></li>
+        <li class="list-group-item bg-dark text-white">Final Score: <strong>{{ result['final_score'] }}</strong></li>
+        {% if result.rules_triggered %}
+          <li class="list-group-item bg-dark text-danger">Rules Triggered: {{ result.rules_triggered }}</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

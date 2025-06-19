@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-lg bg-dark text-white" style="max-width: 600px; width: 100%;">
+    <div class="card-header text-center bg-gradient">
+      <h4 class="mb-0">
+        <i class="bi bi-shield-exclamation me-2 text-warning"></i>Detection Result
+      </h4>
+    </div>
+    <div class="card-body text-center">
+
+      {% if is_fake %}
+        <div class="alert alert-danger fs-5 fw-bold" role="alert">
+          ⚠️ This number is likely a <strong>Fake Customer Care</strong> contact!
+        </div>
+        <p class="mb-3">
+          Please do not share any personal or banking information. Report this number to your local cybercrime authorities.
+        </p>
+      {% else %}
+        <div class="alert alert-success fs-5 fw-bold" role="alert">
+          ✅ This number appears to be <strong>Legitimate</strong>.
+        </div>
+        <p class="mb-3">
+          No suspicious patterns were detected. Proceed with caution as always.
+        </p>
+      {% endif %}
+
+      
+
+      <div class="d-grid mt-4">
+        <a href="/detect/fake-care" class="btn btn-outline-warning fw-bold">
+          <i class="bi bi-arrow-left me-2"></i>Check Another Number
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
