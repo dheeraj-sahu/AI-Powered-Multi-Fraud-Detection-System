@@ -3,12 +3,16 @@ It tackles phishing, smishing, vishing, fake customer care, QR scams, and identi
 
 
 ## Targeted Frauds:
- ```
-   Fake Payment Links
-   Identity Theft 
-   QR Code Scam 
-   Fake Customer Care Numbers 
-   Vishing (Voice Phishing)
+    ```
+       Fake Payment Links
+       Identity Theft 
+       QR Code Scam 
+       Fake Customer Care Numbers 
+       Vishing (Voice Phishing)
+----
+
+![image](https://github.com/user-attachments/assets/8401e5df-2ef9-4980-814e-2e9eb9ed22a1)
 
 
----
+
+
